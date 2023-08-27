@@ -24,8 +24,11 @@ const concatFinalData = concat(userData, others);
 
 // merge and concat similiar action but there's some extra parameters
 // concurrent param that specify whether we want merge 2 observables at the same time
-const mergeFinalData = merge(userData, others, others2, 2);
+const concurrent = 2;
+const mergeFinalData = merge(userData, others, others2, concurrent);
 
 mergeFinalData.subscribe((res) => {
-  console.log(res);
+  if (res.name && res.name === 'Geetha') {
+    console.log(res.gender);
+  }
 });
