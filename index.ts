@@ -1,6 +1,7 @@
 import { interval, take, concat, Observable, of, merge } from 'rxjs';
+import { MapOperator } from './mapOperators';
 
-function getUserData(): Observable<any> {
+export function getUserData(): Observable<any> {
   return of([
     { name: 'prasanna', gender: 'MALE' },
     { name: 'Jagadesh', gender: 'MALE' },
@@ -32,3 +33,5 @@ mergeFinalData.subscribe((res) => {
     console.log(res.gender);
   }
 });
+
+let d = new MapOperator().updateMap();
