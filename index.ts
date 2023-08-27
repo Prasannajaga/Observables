@@ -12,11 +12,20 @@ function getUserData(): Observable<any> {
 
 const userData = getUserData();
 const others = of({ name: 'Kumar', gender: 'TRANSGENDER' });
+const others2 = of({ name: 'Geetha', gender: 'TRANSGENDER' });
 
-const finalData = concat(userData, others);
+// Concat will merge tha data by the order and it follows one by one
+// exceution when scubscribing
+const concatFinalData = concat(userData, others);
 
-finalData.subscribe((res) => {
-  if (res.name && res.name === 'Kumar') {
-    console.log(res.gender);
-  }
+// concatFinalData.subscribe((res) => {
+//   console.log(res);
+// });
+
+// merge and concat similiar action but there's some extra parameters
+// concurrent param that specify whether we want merge 2 observables at the same time
+const mergeFinalData = merge(userData, others, others2, 2);
+
+mergeFinalData.subscribe((res) => {
+  console.log(res);
 });
