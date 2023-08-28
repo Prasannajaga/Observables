@@ -2,8 +2,6 @@ import { interval, take, concat, Observable, of, merge } from 'rxjs';
 import { getUserData } from './dataService';
 import { MapOperator } from './mapOperators';
 
- 
-
 const userData = getUserData();
 const others = of({ name: 'Kumar', gender: 'TRANSGENDER' });
 const others2 = of({ name: 'Geetha', gender: 'TRANSGENDER' });
@@ -31,4 +29,9 @@ mergeFinalData.subscribe((res) => {
 // let d = new MapOperator().updateConcatMap();
 
 // mergeMap
-new MapOperator().updatMergeMap();
+// new MapOperator().updatMergeMap();
+
+// partition
+// new MapOperator().updateParition();
+
+new MapOperator().updateZip();
