@@ -1,5 +1,6 @@
 import { interval, take, concat, Observable, of, merge } from 'rxjs';
 import { getUserData } from './dataService';
+import { fitlerOperators } from './filterOperators';
 import { MapOperator } from './mapOperators';
 
 const userData = getUserData();
@@ -19,11 +20,11 @@ const concatFinalData = concat(userData, others);
 const concurrent = 2;
 const mergeFinalData = merge(userData, others, others2, concurrent);
 
-mergeFinalData.subscribe((res) => {
-  if (res.name && res.name === 'Geetha') {
-    console.log(res.gender);
-  }
-});
+// mergeFinalData.subscribe((res) => {
+//   if (res.name && res.name === 'Geetha') {
+//     console.log(res.gender);
+//   }
+// });
 
 // ConcatMap
 // let d = new MapOperator().updateConcatMap();
@@ -34,4 +35,7 @@ mergeFinalData.subscribe((res) => {
 // partition
 // new MapOperator().updateParition();
 
-new MapOperator().updateZip();
+//  zip
+// new MapOperator().updateZip();
+
+new fitlerOperators().single();
